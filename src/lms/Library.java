@@ -8,6 +8,7 @@ public class Library {
 		// Displaying menu
 		System.out.println(
 				"----------------------------------------------------------------------------------------------------------");
+		System.out.println("\t\t\t\tLIBRARY MENU");
 		System.out.println("Press 1 to Add new Book.");
 		System.out.println("Press 0 to Exit Application.");
 		System.out.println("Press 2 to Upgrade Quantity of a Book.");
@@ -48,9 +49,13 @@ public class Library {
 		
 		while (choice != 0) {
 			showMenu();
+			System.out.print("Press a Key: ");
 			choice = input.nextInt();
-
+			System.out.println("\n");
 			switch (choice) {
+			case 0:
+				System.out.println("\n\n\t\t\tApplication closed!");
+				break;
 			case 1:
 				
 				System.out.println("-------------------------ADD NEW BOOK------------------------------");
@@ -66,33 +71,29 @@ public class Library {
 				int bookqty = input.nextInt();
 				objBook[i].storeBook(id,name,author,bookqty);
 				
-				System.out.println("Book Added!");
-
+				System.out.println("\nBook Added!");
+				
+				
+				System.out.print("\nPress 1 to Go Back: ");
 				if (input.nextInt() == 1)
 					showMenu();
 				i++;
 				break;
 			case 2:
-				boolean flag=true;
+				boolean flag=false;
 				System.out.println("Enter Serial No of book");
 				int sno=input.nextInt();
 				for(int bc=0;bc<objBook.length;bc++) {
-//					System.out.println(sno+" "+objBook[bc].sno);
-					if(sno==objBook[bc].sno) {
-						System.out.println("Enter the No of Books to Be Added:");
-						int c=input.nextInt();
-						objBook[bc].bookqty+=c;
-						System.out.println("Book Qty Updated!");
-					}
-					else {
-						flag=false;
-					}
-							
-					
+					flag=objBook[bc].updateQty(sno);
+					if(flag==true)
+						break;
 				}
 				if(flag==false)
 					System.out.println("No Book Found with Serial No "+sno);
 				
+				System.out.print("\nPress 1 to Go Back: ");
+				if (input.nextInt() == 1)
+					showMenu();
 				break;
 			case 4:
 				System.out.println("\n\t\t\tALL BOOKS");
@@ -103,6 +104,10 @@ public class Library {
 				}
 
 				System.out.println("\n");
+				
+				System.out.print("\nPress 1 to Go Back: ");
+				if (input.nextInt() == 1)
+					showMenu();
 				break;
 
 			default:
@@ -113,7 +118,7 @@ public class Library {
 
 		}
 
-		System.out.println("\n\n\t\t\tApplication closed!");
+		
 
 	}
 	
