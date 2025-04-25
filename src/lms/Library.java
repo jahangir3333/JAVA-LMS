@@ -56,10 +56,12 @@ public class Library {
 				System.out.println("-------------------------ADD NEW BOOK------------------------------");
 				System.out.print("Enter Book Id: ");
 				int id = input.nextInt();
+				input.nextLine();
 				System.out.print("Enter Book Name: ");
-				String name = input.next();
+				String name = input.nextLine();
+				
 				System.out.print("Enter Book Author: ");
-				String author = input.next();
+				String author = input.nextLine();
 				System.out.print("Enter Book Quantity: ");
 				int bookqty = input.nextInt();
 				objBook[i].storeBook(id,name,author,bookqty);
@@ -68,23 +70,33 @@ public class Library {
 
 				if (input.nextInt() == 1)
 					showMenu();
+				i++;
 				break;
 
 			case 4:
-				for (int item = 0; item < objBook.length; item++)
-					objBook[item].showBook();
+				System.out.println("\n\t\t\tALL BOOKS");
+				
+				for (int item = 0; item <i; item++) {
+					System.out.println("\nBook "+(item+1));
+					objBook[item].showBook();					
+				}
+
+				System.out.println("\n");
 				break;
 
 			default:
 				System.out.println("Please Press Correct Option!");
 				break;
 			}
-			i++;
+			
 
 		}
 
 		System.out.println("\n\n\t\t\tApplication closed!");
 
 	}
+	
+	
+	
 
 }
