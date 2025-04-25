@@ -72,7 +72,28 @@ public class Library {
 					showMenu();
 				i++;
 				break;
-
+			case 2:
+				boolean flag=true;
+				System.out.println("Enter Serial No of book");
+				int sno=input.nextInt();
+				for(int bc=0;bc<objBook.length;bc++) {
+//					System.out.println(sno+" "+objBook[bc].sno);
+					if(sno==objBook[bc].sno) {
+						System.out.println("Enter the No of Books to Be Added:");
+						int c=input.nextInt();
+						objBook[bc].bookqty+=c;
+						System.out.println("Book Qty Updated!");
+					}
+					else {
+						flag=false;
+					}
+							
+					
+				}
+				if(flag==false)
+					System.out.println("No Book Found with Serial No "+sno);
+				
+				break;
 			case 4:
 				System.out.println("\n\t\t\tALL BOOKS");
 				

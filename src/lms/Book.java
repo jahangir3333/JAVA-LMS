@@ -16,10 +16,10 @@ public class Book {
 	}
 	
 	public void showBook() {
-		System.out.println("\nBook Id: "+this.sno);
+		System.out.println("\nBook SNO: "+this.sno);
 		System.out.println("Book Name: "+this.bookname);
-		System.out.println("Book Id: "+this.authorname);
-		System.out.println("Book Id: "+this.bookqty);
+		System.out.println("Book Author: "+this.authorname);
+		System.out.println("Book Quantity: "+this.bookqty);
 		
 		
 		
