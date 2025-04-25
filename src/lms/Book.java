@@ -40,4 +40,33 @@ public class Book {
 		
 		return false;
 	}
+	
+	
+	public boolean search(int sno,String bookname) {
+		if(sno>0) {
+			if(this.sno==sno) {
+				System.out.println("\nFound Book..");
+				System.out.println("\nBook SNO: "+this.sno);
+				System.out.println("Book Name: "+this.bookname);
+				System.out.println("Book Author: "+this.authorname);
+				System.out.println("Book Quantity: "+this.bookqty);
+				return true;
+			}
+		}
+		else if(bookname!="" && this.bookname!=null) {
+			if(this.bookname.contains(bookname)){
+				System.out.println("\nFound Book..");
+				System.out.println("\nBook SNO: "+this.sno);
+				System.out.println("Book Name: "+this.bookname);
+				System.out.println("Book Author: "+this.authorname);
+				System.out.println("Book Quantity: "+this.bookqty);
+				return true;
+			}
+		}
+		else		
+		return false;
+		
+		return false;
+		
+	}
 }

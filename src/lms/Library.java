@@ -55,6 +55,7 @@ public class Library {
 			switch (choice) {
 			case 0:
 				System.out.println("\n\n\t\t\tApplication closed!");
+				System.exit(0);
 				break;
 			case 1:
 				
@@ -95,6 +96,39 @@ public class Library {
 				if (input.nextInt() == 1)
 					showMenu();
 				break;
+				
+			case 3:
+				boolean flagsearch=false;
+				int j=0;
+				System.out.println("\nPress 1 to Search by Serial No: ");
+				System.out.println("\nPress 2 to Search by Book Name: ");
+				int c=input.nextInt();
+				if(c==1) {
+					System.out.print("\nEnter Serial No of Book: ");
+					int s=input.nextInt();
+					for ( j = 0; j < objBook.length; j++) {
+						flagsearch=objBook[j].search(s,"");
+						if(flagsearch==true)
+							break;
+					}
+				}
+				else if(c==2) {
+					input.nextLine();
+					System.out.print("\nEnter Name of Book: ");
+					String s=input.nextLine();
+					for (j = 0; j < objBook.length; j++) {
+						flagsearch=objBook[j].search(0,s);
+						
+					}
+				}
+				else {
+					System.out.println("\nEnter Correct Option!");
+				}
+				
+				if(flagsearch==false)
+					System.out.println("\nNo Books Found!!");
+				break;
+				
 			case 4:
 				System.out.println("\n\t\t\tALL BOOKS");
 				
